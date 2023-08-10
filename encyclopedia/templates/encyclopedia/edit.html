@@ -1,0 +1,36 @@
+{% extends "encyclopedia/layout.html" %} 
+
+
+{% block title %} Edit Page {% endblock%} 
+
+{% block body %}
+<h1>Edit Page</h1>
+
+<form method="POST" action="{% url 'save_edit' %}">
+  {% csrf_token %}
+  <label> want to create a new title ?</label>
+  <input
+    type="text"
+    name="title"
+    placeholder="Please Enter The Title"
+    value="{{title}}"
+  />
+  <br />
+  <label> How Do you want to descripe your title :</label>
+  <textarea
+    name="content"
+    placeholder="Content"
+    cols="30"
+    rows="10"
+    class="form-control"
+    style="width: 90%"
+  >{{content}}</textarea>
+  <input
+    type="submit"
+    value="Save"
+    class="btn btn-primary"
+    style="margin: 15px"
+  />
+</form>
+
+{% endblock %}
